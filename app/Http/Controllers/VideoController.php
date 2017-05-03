@@ -36,4 +36,22 @@ class VideoController extends Controller
         flash('El video fue agregado')->success();
         return redirect()->route('videos.index');
     }
+     public function edit($id)
+    {
+        $videos=Video::find($id);
+        $words=Word::all();
+        $regions=Region::all();
+        $states=State::all();
+        $users=User::all();
+        return view('Admin.Videos.edit',compact('words','regions','states','users','videos'));
+    }
+    public function update(Request $request, $id)
+    {
+        $video=Video::find($id);
+        $video->fill($request->all());
+        //$categoria->nombre=$request->nombre;
+        $video->save();
+        flash('El video fue editado')->warning();
+        return redirect()->route('videos.index');
+    }
 }

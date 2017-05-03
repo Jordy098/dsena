@@ -14,14 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/inicio', 'UserController@index');
+Route::group(['prefix'=>'user'],function(){
+	Route::resource('users','UserController');
+	//Ruta de eliminar
+	/*Route::get('categories/{id}/destroy',[
+		'uses'=>'CategoryController@destroy',
+		'as'=>'admin.categories.destroy'
+		]);*/
+});
 
 Route::get('/login', function () {
     return view('Template/login');
 });
-Route::get('/registro', function () {
-    return view('Template/registro');
-});
+
 Route::get('/admin', function () {
     return view('Template/admin');
 });
@@ -54,3 +61,6 @@ Route::group(['prefix'=>'admin'],function(){
 		]);
 
 });*/
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
