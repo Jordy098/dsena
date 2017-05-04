@@ -21,30 +21,43 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            @if(Auth::user())
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#"><span class="icon-home3"></span> Inicio</a>
+                        <a href="{{ url('/inicioadmin') }}"><span class="icon-home3"></span> Inicio</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#"><span class="icon-product-hunt"></span> Palabra</a>
+                        <a href="{{ route('words.index') }}"><span class="icon-product-hunt"></span> Palabra</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#"><span class="icon-stack"></span> Categoria</a>
+                        <a href="{{ route('categories.index') }}"><span class="icon-stack"></span> Categoria</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><span class="icon-film"></span> Video</a>
+                        <a href="{{ route('videos.index') }}"><span class="icon-film"></span> Video</a>
                     </li>
                     <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-user"></span> Sesion <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-user"></span> {{ Auth::user()->nickname }} <span class="caret"></span></a>
           <ul class="dropdown-menu" >
-            <li ><a href="#" ><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
-            <li ><a href="#" ><span class="icon-sign-out"></span> Salir</a></li>
+            <li ><a href="" ><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+            <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <span class="icon-sign-out"></span>
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
           </ul>
         </li>
                 </ul>
+                @endif
             </div>
             <!-- /.navbar-collapse -->
         </div>

@@ -56,7 +56,7 @@
                         <a href="{{ asset('/login') }}">Login</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ asset('/usuarios/create') }}">Registrarse</a>
+                        <a href="{{ asset('/user') }}">Registrarse</a>
                     </li>
                 </ul>
             </div>

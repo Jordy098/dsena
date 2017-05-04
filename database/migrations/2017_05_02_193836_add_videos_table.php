@@ -21,7 +21,7 @@ class AddVideosTable extends Migration
             $table->integer('state_id')->unsigned()->default(1);
             $table->integer('user_id')->unsigned();
 
-            $table->foreign('word_id')->references('id')->on('words');
+            $table->foreign('word_id')->references('id')->on('words')->onDelete('cascade');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('user_id')->references('id')->on('users');

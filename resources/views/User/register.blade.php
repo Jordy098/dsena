@@ -6,6 +6,7 @@
   <div class="col-md-4" style="width: 350px"></div>
   <div class="col-md-4">
   <div class="panel-body">
+  
   @include('flash::message')
   <br>
   <br>

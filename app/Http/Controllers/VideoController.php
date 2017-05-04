@@ -54,4 +54,11 @@ class VideoController extends Controller
         flash('El video fue editado')->warning();
         return redirect()->route('videos.index');
     }
+    public function destroy($id)
+    {
+        $video=Video::find($id);
+        $video->delete();
+        Flash::error("El video fue eliminado");
+        return redirect()->route('videos.index');
+    }
 }
