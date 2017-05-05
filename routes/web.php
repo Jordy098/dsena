@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inicioadmin', function () {
+/*Route::get('/inicioadmin', function () {
     return view('Admin.index');
-});
+});*/
 
 Route::get('/inicio', 'UserController@index');
-Route::get('/user', 'UserController@create')->name('user');
+Route::get('/user', 'UserController@create');
 Route::group(['prefix'=>'user'],function(){
 	Route::resource('users','UserController');
 	//Ruta de eliminar
@@ -38,7 +38,7 @@ Route::get('/admin', function () {
     return view('Template/admin');
 });
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
-	//Route::resource('users','UserController');
+	Route::resource('admins','AdminController');
 	Route::resource('categories','CategoryController');
 	//Ruta de eliminar
 	Route::get('categories/{id}/destroy',[

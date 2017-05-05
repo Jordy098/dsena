@@ -17,6 +17,21 @@
 	1. GENERAL STRUCTURES
 ################################################################# */
 
+
+	#moopio, #moopio a{
+		background-color: none;
+		height: 20px;
+		width: 230px;
+	}
+	#moopio a{
+		display:block;
+	}
+	#moopio a:hover {
+		border-radius: 6px;
+		background-color: #80d4ff;
+		cursor:default;
+	}
+
 .star-rating a {
   display: inline-block;
   color: #95a5a6; /* gris (normal) */
@@ -27,7 +42,7 @@
   .star-rating:hover a:hover ~ a {
     color: #95a5a6; /* gris (normal) */
   }
-
+/* para arriba es editado */
 .dropdown-menu {
 	background: #384452;
 }

@@ -56,7 +56,7 @@ class LoginController extends Controller
                     }
                 elseif(Auth::user()->rol_id == 2)
                     {
-                        return Redirect::to('/inicioadmin')->with('success','Bienvenido Administrador');
+                        return Redirect::to('admin/admins')->with('success','Bienvenido Administrador');
                     }
                 else
                     {

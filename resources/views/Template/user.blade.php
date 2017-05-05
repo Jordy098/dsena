@@ -27,21 +27,21 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ route('users.index') }}"><span class="icon-home3"></span> Inicio</a>
+                        <a href="#"><span class="icon-home3"></span> Inicio</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ route('words.index') }}"><span class="icon-product-hunt"></span> Palabra</a>
+                        <a href="#"><span class="icon-stack"></span> Categorias</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ route('categories.index') }}"><span class="icon-stack"></span> Categoria</a>
+                        <a href="#"><span class="icon-star-full"></span> Favoritos</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ route('videos.index') }}"><span class="icon-film"></span> Video</a>
+                        <a href="#"><span class="icon-film"></span> Agregar Video</a>
                     </li>
                     <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-user"></span> {{ Auth::user()->nickname }} <span class="caret"></span></a>
           <ul class="dropdown-menu" >
-            <li ><a href="{{ route('admins.edit',Auth::user()->id) }}" ><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+            <li ><a href="{{ route('users.edit',Auth::user()->id) }}" ><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
             <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -63,7 +63,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="container" style="margin-top: 150px">
+    <div class="container" style="margin-top: 220px">
         @yield('formulario')
     </div>
 </body>

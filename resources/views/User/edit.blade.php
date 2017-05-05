@@ -1,4 +1,4 @@
-@extends('Template.admin')
+@extends('Template.user')
 
 @section('formulario')
 
@@ -9,7 +9,7 @@
   @include('flash::message')
   <br>
   <br>
-  	{!! Form::open(['route'=>['admins.update',$users],'method'=>'PUT']) !!}
+  	{!! Form::open(['route'=>['users.update',$users],'method'=>'PUT']) !!}
 	<div class="form-group">
   <label>Nombre</label>
 		{!! Form::text('name', $users->name , ['class'=>'form-control', 'placeholder'=>'Ingrese Nombre' ,'required', 'style'=>'width: 400px;height: 45px;']) !!}
