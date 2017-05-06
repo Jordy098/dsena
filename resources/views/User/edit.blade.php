@@ -29,6 +29,7 @@
 	<br>
 	<div >
 		{!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}
+    <a style="margin-left: 30px;" href="{{ route('users.index') }}">volver a inicio</a>
 	</div>
 
 	{!! Form::close() !!}

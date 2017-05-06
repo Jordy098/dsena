@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Category;
 use App\Word;
+use App\Video;
 use Laracasts\Flash\Flash;
 
 class UserController extends Controller
@@ -14,7 +15,16 @@ class UserController extends Controller
     {
         $categories=Category::all();
         $words=Word::all();
-    	return view('User.index',compact('categories','words'));
+        $videos=Video::all();
+        foreach ($videos as $video) {
+            if($video->id==1)
+            {
+                $videoname=$video->url;
+                $split=explode('watch?v=', $videoname);;
+                $url=$split[1];
+            }
+        }
+    	return view('User.index',compact('categories','words','url'));
     }
     public function create()
     {
@@ -45,5 +55,9 @@ class UserController extends Controller
         $users->save();
         flash('El administrador "'.$users->name.'" fue editado')->warning();
          return redirect()->route('users.edit',$users->id);
+    }
+    public function envio($id)
+    {
+        
     }
 }

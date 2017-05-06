@@ -20,33 +20,39 @@
 						{!! Form::text('url', $videos->url, ['class'=>'form-control', 'placeholder'=>'Ingrese Categoria' ,'required', 'style'=>'width: 400px;height: 45px;']) !!}
 					</div>
 					<div class="form-group">
-		            <select class="form-control" name="word_id" style="width:400px;height: 45px; ">
+		            <select class="form-control" name="word_id" style="width:400px;height: 45px; " required>
 		            @foreach($words as $word)
-		              <option value="{{ $word->id }}">{{ $word->name }}</option>
-		              @endforeach
+			              @if($word->id==$videos->word_id)
+			              <option selected value="{{ $word->id }}">{{ $word->name }}</option>
+			              @else
+			              <option value="{{ $word->id }}">{{ $word->name }}</option>
+			              @endif
+		             @endforeach
 		            </select>
 		          </div>
 		          <div class="form-group">
-		            <select class="form-control" name="region_id" style="width:400px;height: 45px; ">
+		            <select class="form-control" name="region_id" style="width:400px;height: 45px; " required>
 		            @foreach($regions as $region)
-		              <option value="{{ $region->id }}">{{ $region->name }}</option>
-		              @endforeach
+			              @if($region->id==$videos->region_id)
+			              <option selected value="{{ $region->id }}">{{ $region->name }}</option>
+			              @else
+			              <option value="{{ $region->id }}">{{ $region->name }}</option>
+			              @endif
+		            @endforeach
 		            </select>
 		          </div>
 		          <div class="form-group">
-		            <select class="form-control" name="state_id" style="width:400px;height: 45px; ">
+		            <select class="form-control" name="state_id" style="width:400px;height: 45px; " required>
 		            @foreach($states as $state)
-		              <option value="{{ $state->id }}">{{ $state->description }}</option>
+		            	  @if($state->id==$videos->state_id)
+			              <option selected value="{{ $state->id }}">{{ $state->description }}</option>
+			              @else
+			              <option value="{{ $state->id }}">{{ $state->description }}</option>
+			              @endif
 		              @endforeach
 		            </select>
 		          </div>
-		          <div class="form-group">
-		            <select class="form-control" name="user_id" style="width:400px;height: 45px; ">
-		            @foreach($users as $user)
-		              <option value="{{ $user->id }}">{{ $user->name }}</option>
-		              @endforeach
-		            </select>
-		          </div>
+		          
 					<br>
 					<div >
 						{!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!} <a style="margin-left: 30px;" href="{{ route('videos.index') }}">volver a lista</a>

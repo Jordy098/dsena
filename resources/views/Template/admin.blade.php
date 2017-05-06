@@ -27,7 +27,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ route('users.index') }}"><span class="icon-home3"></span> Inicio</a>
+                        <a href="{{ route('admins.index') }}"><span class="icon-home3"></span> Inicio</a>
                     </li>
                     <li class="page-scroll">
                         <a href="{{ route('words.index') }}"><span class="icon-product-hunt"></span> Palabra</a>

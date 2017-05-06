@@ -21,8 +21,9 @@ Route::get('/', function () {
 
 Route::get('/inicio', 'UserController@index');
 Route::get('/user', 'UserController@create');
-Route::group(['prefix'=>'user'],function(){
+Route::group(['prefix'=>'user'],function(){//'middleware'=>'auth'
 	Route::resource('users','UserController');
+	Route::resource('video','UservideoController');
 	//Ruta de eliminar
 	/*Route::get('categories/{id}/destroy',[
 		'uses'=>'CategoryController@destroy',

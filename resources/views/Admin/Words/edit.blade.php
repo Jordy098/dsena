@@ -20,10 +20,14 @@
 						{!! Form::text('name', $words->name, ['class'=>'form-control', 'placeholder'=>'Ingrese Categoria' ,'required', 'style'=>'width: 400px;height: 45px;']) !!}
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="category_id" style="width:400px;height: 45px; ">
+						<select class="form-control" name="category_id" style="width:400px;height: 45px;" required>
 						@foreach($categories as $category)
+						  @if($category->id==$words->category_id)
+						  <option selected value="{{ $category->id }}">{{ $category->name }}</option>
+						  @else
 						  <option value="{{ $category->id }}">{{ $category->name }}</option>
-						  @endforeach
+						  @endif
+						@endforeach
 						</select>
 					</div>
 					<br>
