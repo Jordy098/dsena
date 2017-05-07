@@ -18,7 +18,8 @@ class UservideoController extends Controller
         $regions=Region::all();
         $states=State::all();
         $users=User::all();
-        return view('User/createvideo',compact('words','regions','states','users'));
+        $categories=Category::all();
+        return view('User/createvideo',compact('words','regions','states','users','categories'));
     }
     public function store(Request $request)
     {
@@ -28,5 +29,21 @@ class UservideoController extends Controller
         $videos->save();
         flash('El video fue agregado')->success();
         return redirect()->route('video.create');
+    }
+    public function getenvio(Request $request, $id)
+    {
+        $word=Word::find($id);
+        $videos=Video::all();
+        foreach ($videos as $video) {
+            if($video->word_id==$word->id)
+            {
+                $videoname=$video->url;
+                $split=explode('watch?v=', $videoname);
+                return $split[1];
+            }
+        }
+        $mensaje="genial esta funcionando ".$id;
+        
+        return redirect()->route('users.index');
     }
 }

@@ -20,7 +20,7 @@ class UserController extends Controller
             if($video->id==1)
             {
                 $videoname=$video->url;
-                $split=explode('watch?v=', $videoname);;
+                $split=explode('watch?v=', $videoname);
                 $url=$split[1];
             }
         }
@@ -56,8 +56,31 @@ class UserController extends Controller
         flash('El administrador "'.$users->name.'" fue editado')->warning();
          return redirect()->route('users.edit',$users->id);
     }
-    public function envio($id)
+    public function category($id)
     {
-        
+        $i=0;
+        $categories=Category::all();
+        $words=Word::all();
+        $videos=Video::all();
+        foreach($words as $word)
+        {
+            if($word->category_id==$id)
+            {
+                foreach ($videos as $video) {
+                    if($video->word_id==$word->id)
+                    {
+                        $i++;
+                        if($i==1)
+                        {
+                            $videoname=$video->url;
+                        $split=explode('watch?v=', $videoname);
+                        $url=$split[1];
+                        }
+                        
+                    }
+                }
+            }
+        }
+        return view('User.category',compact('categories','words','url','id'));
     }
 }

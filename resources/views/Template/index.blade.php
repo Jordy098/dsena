@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ asset('/inicio') }}"><font color="#33ff33">D</font>Señas</a>
+                <a class="navbar-brand" href="{{ asset('/') }}"><font color="#33ff33">D</font>Señas</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -81,7 +81,24 @@
         </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Ampliemos la comunicación</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <!--aquí puedo editar -->
+                <div class="jumbotron">
+                  <h3>Con esta aplicación podras aprender e interactuar con nuestro diccionario de señas</h3>
+                  <h3>ademas de contar con una plataforma de aprendizaje especializada en personas sordomudas</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     
 
     <!-- jQuery -->

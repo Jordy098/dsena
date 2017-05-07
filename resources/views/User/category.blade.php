@@ -28,14 +28,14 @@
   <!- izquierdo -->
 	<div class="form-control" style="overflow: scroll;height: 300px;">
 	@foreach($categories as $category)
-  	@if($category->id=='1')
+  	@if($category->id==$id)
   		@foreach($words as $word)
   		@if($word->category_id==$category->id)
 	  	<div id="moopio"><a class="llamar" id="{{ $word->id }}" data-id="{{ $category->id }}" style="text-decoration:none;" href="#{{ $word->id }}/{{ $category->id }}">{{ $word->name }}</a></div>
 	  	@endif
 	  	@endforeach
     @endif
-  	@endforeach
+  @endforeach
 	</div>
   </div>
 </div>

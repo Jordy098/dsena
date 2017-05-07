@@ -12,18 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Template.index');
 });
 
 /*Route::get('/inicioadmin', function () {
     return view('Admin.index');
 });*/
 
-Route::get('/inicio', 'UserController@index');
+//Route::get('/inicio', 'UserController@index');
+//Route::get('/admin', 'AdminController@index');
+
 Route::get('/user', 'UserController@create');
-Route::group(['prefix'=>'user'],function(){//'middleware'=>'auth'
+Route::group(['prefix'=>'user', 'middleware'=>'auth', 'middleware'=>'userStandard'],function(){//'middleware'=>'auth'
 	Route::resource('users','UserController');
 	Route::resource('video','UservideoController');
+	Route::get('envio/{id}', 'UservideoController@getenvio');
+	Route::get('category/{id}', 'UserController@category');
 	//Ruta de eliminar
 	/*Route::get('categories/{id}/destroy',[
 		'uses'=>'CategoryController@destroy',
@@ -35,10 +39,10 @@ Route::get('/login', function () {
     return view('Template/login');
 });
 
-Route::get('/admin', function () {
-    return view('Template/admin');
-});
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
+//Route::get('/admin', function () {
+//    return view('Template/admin');
+//});
+Route::group(['prefix'=>'admin', 'middleware'=>'auth', 'middleware'=>'userAdmin'],function(){
 	Route::resource('admins','AdminController');
 	Route::resource('categories','CategoryController');
 	//Ruta de eliminar
