@@ -23,7 +23,7 @@ Route::get('/', function () {
 //Route::get('/admin', 'AdminController@index');
 
 Route::get('/user', 'UserController@create');
-Route::group(['prefix'=>'user', 'middleware'=>'auth', 'middleware'=>'userStandard'],function(){//'middleware'=>'auth'
+Route::group(['prefix'=>'user', 'middleware'=>['auth','userStandard']],function(){//'middleware'=>'auth'
 	Route::resource('users','UserController');
 	Route::resource('video','UservideoController');
 	Route::get('envio/{id}', 'UservideoController@getenvio');

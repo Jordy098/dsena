@@ -7,6 +7,7 @@ use App\User;
 use App\Category;
 use App\Word;
 use App\Video;
+use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
 
 class UserController extends Controller
@@ -40,6 +41,10 @@ class UserController extends Controller
     }
      public function edit($id)
     {
+        if(Auth::user()->id!=$id)
+        {
+            return back();
+        }
         $users=User::find($id);
         return view('User.edit')->with('users',$users);
     }
@@ -62,6 +67,7 @@ class UserController extends Controller
         $categories=Category::all();
         $words=Word::all();
         $videos=Video::all();
+        $a=false;
         foreach($words as $word)
         {
             if($word->category_id==$id)
@@ -69,17 +75,25 @@ class UserController extends Controller
                 foreach ($videos as $video) {
                     if($video->word_id==$word->id)
                     {
-                        $i++;
-                        if($i==1)
-                        {
-                            $videoname=$video->url;
-                        $split=explode('watch?v=', $videoname);
-                        $url=$split[1];
-                        }
-                        
+                         $i++;
+                         if($i==1)
+                         {
+                           $videoname=$video->url;
+                           $a=true;
+                         }
                     }
                 }
             }
+        }
+        if($a==true)
+        {
+            $split=explode('watch?v=', $videoname);
+            $url=$split[1];
+        }
+        else
+        {
+            flash('La categoria seleccionada no posee una palabra')->error();
+            return view('User.vacio')->with('categories',$categories);
         }
         return view('User.category',compact('categories','words','url','id'));
     }

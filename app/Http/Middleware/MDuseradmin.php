@@ -18,7 +18,7 @@ class MDuseradmin
         $usuario=\Auth::user();
         if($usuario->rol_id!=2)
         {
-            return redirect()->route('admins.index');
+            return redirect()->route('users.index');
         }
         return $next($request);
     }

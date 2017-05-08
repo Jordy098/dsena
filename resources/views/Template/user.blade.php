@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.css') }}">
-
-<link href="{{asset('css/freelancer.min.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('icon/style.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <title></title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+  <link href="{{asset('css/freelancer.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('icon/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,14 +74,14 @@
     <div class="container" style="margin-top: 150px">
         @yield('formulario')
     </div>
-</body>
-<script type="text/javascript" src="{{ asset('plugins/jquery/jquery-3.2.1.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('plugins/jquery/jquery-3.2.1.js') }}"></script>
+    <!--<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>-->
 @yield('script')
 <script>
     $('#flash-overlay-modal').modal();
 </script>
+</body>
+</body>
 </html>
+
 

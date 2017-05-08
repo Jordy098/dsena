@@ -8,24 +8,64 @@
 @endsection
 @section('formulario')
 
-<div class="row" style="margin-top: 70px;">
+<div class="row" style="margin-top: 60px;">
   <div class="col-md-9 col-md-push-3">
-  	<!- derecho -->
+  	<!-- derecho -->
   	<div class="row">
-  <div class="col-md-6">
-  	<!- derecho -->
+  <div class="col-md-6" style="margin-top: 10px;">
+  	<!-- izquierdo -->
   	<iframe id="prin" width="480" height="300" src="https://www.youtube.com/embed/{{ $url }}?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <div >
+        <div class="ec-stars-wrapper" style="margin-right:10px">
+          <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+          <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+          <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+          <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+          <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+        </div>
+        <button style="background-color: green"><font color="#fff">Votar</font></button>
+        <div>
+          <h5>(0)votos</h5>
+        </div>
+      </div> 
   </div>
   <div class="col-md-6">
-  <!- izquierdo -->
-  	<div style="margin-left: 60px;"><iframe width="320" height="150" src="https://www.youtube.com/embed/7Cf4VQkS1Kg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
-  	<div style="margin-left: 60px;"><iframe width="320" height="150" src="https://www.youtube.com/embed/7Cf4VQkS1Kg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+  <!-- derecho -->
+  	<div style="margin-left: 60px;"><iframe width="320" height="150" src="https://www.youtube.com/embed/7Cf4VQkS1Kg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <div>
+      <div class="ec-stars-wrapper" style="margin-right:10px">
+          <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+          <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+          <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+          <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+          <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+        </div>
+        <button style="background-color: green"><font color="#fff">Votar</font></button>
+    </div>
+    </div>
+  	<div style="margin-left: 60px;margin-top: 10px"><iframe width="320" height="150" src="https://www.youtube.com/embed/7Cf4VQkS1Kg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <div>
+      <div class="ec-stars-wrapper" style="margin-right:10px">
+          <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+          <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+          <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+          <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+          <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+        </div>
+        <button style="background-color: green"><font color="#fff">Votar</font></button>
+    </div>
+    </div>
   </div>
 </div>
   	
   </div>
   <div class="col-md-3 col-md-pull-9">
-  <!- izquierdo -->
+  <!-- izquierdo -->
+  <div>
+    <form>
+      <button class="btn btn-default" style="margin-right: 15px"><span class="icon-mic"></span></button><input  type="" name="" style="border-radius: 4px;margin-right: 10px"><button class="btn btn-default"><span class="icon-search"></span></button>
+    </form>
+  </div>
 	<div class="form-control" style="overflow: scroll;height: 300px;">
 	@foreach($categories as $category)
   	@if($category->id==$id)
